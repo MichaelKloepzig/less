@@ -1,0 +1,17 @@
+/*
+ * Adapts a property relative to screen width, limiting it to a min / max value.
+ */
+
+.responsive-property(@property, @min-vw, @max-vw, @min-size, @max-size) {
+
+	@{property}: @min-size;
+
+	@media screen and (min-width: @min-vw) {
+			@{property}: calc( @min-size + unit((@max-size - @min-size)) * ((100vw - @min-vw) / unit((@max-vw - @min-vw)) ) );
+	}
+
+	@media screen and (min-width: @max-vw) {
+			@{property}: @max-size;
+	}
+
+}
