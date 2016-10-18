@@ -1,0 +1,10 @@
+@import "responsive-property";
+@fontSize-base: 16;
+@fontSize-default: unit((@fontSize-base/16), rem);
+
+html {
+	font-size: .9em; /* small screens */
+	.responsive-property(font-size, 18em, 50em, .85em, unit(@fontSize-default, em)); /* normal screens */
+	.responsive-property(font-size, 100em, 120em, unit(@fontSize-default, em), 1.05em); /* large / hires screens */
+	-webkit-text-size-adjust: 100%; /* disable safari text adjust fuckup */
+}
